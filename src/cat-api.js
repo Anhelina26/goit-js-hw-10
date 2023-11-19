@@ -2,7 +2,6 @@
 
 import axios from "axios";
 
-// Додайте свій ключ замість "твій ключ"
 axios.defaults.headers.common["x-api-key"] = "live_kH0XFWwWfZ60KmXVwKY86Ww6bKz7ErzFw6Z7BS29B3xj3TJrTyDqX31TRgKrz4uR";
 
 const BASE_URL_BREEDS = "https://api.thecatapi.com/v1/breeds";

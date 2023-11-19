@@ -1,14 +1,16 @@
 .cat_image{
-    width: 550px;
+    width: 400px;
     height: 350px;
 }
 .cat_text{
     width: 500px;
 }
-.cat-info{
-    display: flex;
+.cat-info {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
 }
-/* Загальні стилі для <select> */
+
 .breed-select {
     padding: 10px;
     margin-bottom: 15px;
@@ -21,24 +23,23 @@
     outline: none;
   }
   
-  /* Зміна вигляду при наведенні */
   .breed-select:hover {
     border-color: #888;
   }
   
-  /* Зміна вигляду при фокусу */
+
  .breed-select:focus {
     border-color: #4d90fe;
     box-shadow: 0 0 5px rgba(77, 144, 254, 0.7);
   }
-  
-  /* Зміна вигляду при виборі */
+
   .breed-select:active,
   .breed-select:checked {
     border-color: #2f5bb7;
-    background-color: #f0f8ff; /* Змініть колір за потребою */
-  }
-  /* .loader {
+    background-color: #f0f8ff; }
+
+
+  .loader {
     width: 48px;
     height: 48px;
     display: inline-block;
@@ -64,4 +65,4 @@
   }
    @keyframes rotate {
     100%{    transform: rotate(360deg)}
-  } */
+  }
