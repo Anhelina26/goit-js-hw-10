@@ -5,11 +5,14 @@ const loader = document.getElementById('loader');
 const error = document.getElementById('error');
 const catInfo = document.getElementById('catInfo');
 
+
+
 breedSelect.addEventListener('change', (event) => {
   const selectedBreedId = event.target.value;
 
   showLoader();
 
+ 
   fetchCatByBreed(selectedBreedId)
     .then((catData) => {
       hideLoader();
@@ -40,30 +43,36 @@ function fillBreedSelect(breeds) {
 }
 
 function showLoader() {
+  breedSelect.style.display = 'none';
+  catInfo.style.display = 'none';
   loader.style.display = 'block';
   error.style.display = 'none';
-  catInfo.style.display = 'none';
+ 
+
 }
 
 function hideLoader() {
   loader.style.display = 'none';
+  catInfo.style.display = 'block';
+  breedSelect.style.display = 'block';
+
 }
 
 function showCatInfo(catData) {
   const { breeds, url } = catData;
   catInfo.innerHTML = `<img class="cat_image" src="${url}" alt="Cat Image" />`;
 
-  breeds.forEach((breed) => {
-    const { name, description, temperament } = breed;
-    const breedInfo = document.createElement('div');
-    breedInfo.innerHTML = `<h3>${name}</h3>
-                          <p class="cat_text"><strong>Description:</strong> ${description}</p>
-                          <p><strong>Temperament:</strong> ${temperament}</p>`;
-    catInfo.appendChild(breedInfo);
-  });
+  const breedInfoHTML = breeds.map(({ name, description, temperament }) => `
+    <div>
+      <h3>${name}</h3>
+      <p class="cat_text"><strong>Description:</strong> ${description}</p>
+      <p><strong>Temperament:</strong> ${temperament}</p>
+    </div>
+  `).join("");
 
+  catInfo.innerHTML += breedInfoHTML;
   catInfo.style.display = 'block';
-}
+} 
 
 function showError() {
   error.style.display = 'block';
