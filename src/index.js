@@ -6,13 +6,13 @@ const error = document.getElementById('error');
 const catInfo = document.getElementById('catInfo');
 
 
+loader.style.display = 'none';
 
 breedSelect.addEventListener('change', (event) => {
   const selectedBreedId = event.target.value;
 
   showLoader();
 
- 
   fetchCatByBreed(selectedBreedId)
     .then((catData) => {
       hideLoader();
@@ -43,19 +43,15 @@ function fillBreedSelect(breeds) {
 }
 
 function showLoader() {
-  breedSelect.style.display = 'none';
-  catInfo.style.display = 'none';
   loader.style.display = 'block';
+  catInfo.style.display = 'none';
   error.style.display = 'none';
- 
-
 }
 
 function hideLoader() {
   loader.style.display = 'none';
   catInfo.style.display = 'block';
   breedSelect.style.display = 'block';
-
 }
 
 function showCatInfo(catData) {
@@ -78,6 +74,7 @@ function showError() {
   error.style.display = 'block';
   loader.style.display = 'none';
   catInfo.style.display = 'none';
+  breedSelect.style.display = 'none';
 }
 
 function hideError() {
